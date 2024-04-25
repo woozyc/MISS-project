@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">layouttest</string>
+    <string name="imageSize">96dp</string>
+    <string name="imageMarginVertical">50dp</string>
+
+    <string name="phoneInfo">手机信息</string>
+    <string name="appInfo">应用信息</string>
+    <string name="locInfo">定位信息</string>
+    <string name="sensorInfo">传感器信息</string>
+
+    <string name="titleSize">30sp</string>
+</resources>
