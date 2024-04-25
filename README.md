@@ -33,7 +33,6 @@
 
 2. AndroidManifest.xml配置文件。
 
-   ![2为本程序添加权限，使其能够获取到更多信息](.\screenshots\2.png)
    <img src=".\screenshots\2.png" alt="2为本程序添加权限，使其能够获取到更多信息" style="zoom:50%;" />
 
 4. 导入本仓库并运行app，会显示主界面，有四个卡片，可以点击查看相应的信息。
