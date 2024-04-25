@@ -34,16 +34,17 @@
 2. AndroidManifest.xml配置文件。
 
    ![2为本程序添加权限，使其能够获取到更多信息](.\screenshots\2.png)
+   <img src=".\screenshots\2.png" alt="2为本程序添加权限，使其能够获取到更多信息" style="zoom:50%;" />
 
-3. 导入本仓库并运行app，会显示主界面，有四个卡片，可以点击查看相应的信息。
+4. 导入本仓库并运行app，会显示主界面，有四个卡片，可以点击查看相应的信息。
 
    <img src=".\screenshots\6.png" alt="主界面" style="zoom:50%;" />
 
-4. 例如，手机信息界面会输出系统信息、用户信息，应用信息界面输出各app信息。
+5. 例如，手机信息界面会输出系统信息、用户信息，应用信息界面输出各app信息。
 
    <img src=".\screenshots\4.png" alt="设备信息" style="zoom:50%;" /><img src=".\screenshots\5.png" alt="设备信息" style="zoom:50%;" />
-5. 总体开发环境。
+6. 总体开发环境。
 
-   ![5总体开发环境](.\screenshots\7.png)
+   <img src=".\screenshots\7.png" alt="5总体开发环境" style="zoom:50%;" />
 
 
