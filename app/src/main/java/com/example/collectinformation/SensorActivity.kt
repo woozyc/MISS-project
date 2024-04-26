@@ -22,8 +22,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import com.example.collectinformation.util.SystemUtils
 
 class SensorActivity : ComponentActivity() {
+    private lateinit var bindind: SensorActivity
     // onCreate方法是Activity的生命周期方法，在Activity创建时被调用
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +41,7 @@ class SensorActivity : ComponentActivity() {
     }
     @Composable
     fun DisplaySensorInfo() {
-        // 调用编写的DeviceInfoCollector中的函数，获取已安装应用程序信息
-        //TODO: val sensorsRead =
+        val sensor = SystemUtils.showSensorInfo(this)
 
         // 使用Column组件垂直排列各类信息，否则页面内字会重叠
         Column(
@@ -59,7 +60,7 @@ class SensorActivity : ComponentActivity() {
             )
             Spacer(modifier = Modifier.height(32.dp))
             Text("Sensor Information:")
-            //TODO: Text(sensorsRead)
+            Text(sensor)
         }
     }
 }
