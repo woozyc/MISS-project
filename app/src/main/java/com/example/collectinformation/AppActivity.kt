@@ -58,7 +58,7 @@ class AppActivity : ComponentActivity() {
                     .offset(x = 16.dp)
             )
             Spacer(modifier = Modifier.height(32.dp))
-            Text("Number of Installed Apps:")
+            Text("Installed App Information:")
             Text(installedApps)
         }
     }

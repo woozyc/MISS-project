@@ -112,7 +112,7 @@ object DeviceInfoCollector {
         val builder = StringBuilder()
         val packageManager = context.packageManager
         val installedApps = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
-        builder.append("Total app number: ").append(installedApps.size.toString()).append("\n\n")
+        builder.append("Number of Installed Apps: ").append(installedApps.size.toString()).append("\n\n")
         for (app in installedApps) {
             builder.append("App Name: ").append(app.loadLabel(packageManager)).append("\n")
             builder.append("Package Name: ").append(app.packageName).append("\n")
