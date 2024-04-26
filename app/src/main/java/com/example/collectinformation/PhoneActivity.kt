@@ -42,7 +42,6 @@ class PhoneActivity : ComponentActivity() {
         // 调用编写的DeviceInfoCollector中的函数，获取系统信息、用户信息和已安装应用程序信息
         val systemInfo = DeviceInfoCollector.getSystemInfo(this)
         val userInfo = DeviceInfoCollector.getUserInfo(this)
-        val installedApps = DeviceInfoCollector.getInstalledApps(this)
 
         // 使用Column组件垂直排列各类信息，否则页面内字会重叠
         Column(
