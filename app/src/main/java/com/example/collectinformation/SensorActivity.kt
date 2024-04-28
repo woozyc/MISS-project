@@ -1,66 +1,50 @@
 package com.example.collectinformation
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import com.example.collectinformation.ui.theme.CollectInformationTheme
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import com.example.collectinformation.util.SystemUtils
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-class SensorActivity : ComponentActivity() {
-    private lateinit var bindind: SensorActivity
-    // onCreate方法是Activity的生命周期方法，在Activity创建时被调用
+
+class SensorActivity : AppCompatActivity(), SensorEventListener {
+    private var ms_x: TextView? = null
+    private var ms_y: TextView? = null
+    private var ms_z: TextView? = null
+    private var ms_sensor_info: TextView? = null
+    private var sm: SensorManager? = null
+    private var mSensorOrientation: Sensor? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            CollectInformationTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    // 调用编写的DisplayDeviceInfo函数，输出各类信息
-                    DisplaySensorInfo()
-                }
-            }
-        }
-    }
-    @Composable
-    fun DisplaySensorInfo() {
-        val sensor = SystemUtils.showSensorInfo(this)
+        setContentView(R.layout.activity_sensor)
 
-        // 使用Column组件垂直排列各类信息，否则页面内字会重叠
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 10.dp)
-                .verticalScroll(rememberScrollState())
-        ) {
-            Image(
-                painter = painterResource(R.drawable.____dashboard),
-                contentDescription = stringResource(R.string.sensorInfo),
-                modifier = Modifier
-                    .padding(top = 32.dp)
-                    .size(100.dp)
-                    .offset(x = 16.dp)
-            )
-            Spacer(modifier = Modifier.height(32.dp))
-            Text("Sensor Information:")
-            Text(sensor)
-        }
+        //获取传感器管理器
+        sm = getSystemService(SENSOR_SERVICE) as SensorManager
+
+        // 获取加速度传感器
+        mSensorOrientation = sm!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+
+        //注册数值变化监听器
+        sm!!.registerListener(this, mSensorOrientation, SensorManager.SENSOR_DELAY_UI)
+        ms_x = findViewById<View>(R.id.ms_x) as TextView
+        ms_y = findViewById<View>(R.id.ms_y) as TextView
+        ms_z = findViewById<View>(R.id.ms_z) as TextView
+
+        ms_sensor_info = findViewById<View>(R.id.sensorText) as TextView
+        val sensor = SystemUtils.showSensorInfo(this)
+        ms_sensor_info!!.text = sensor
     }
+
+    // 传感器数值变化会调用此方法
+    override fun onSensorChanged(event: SensorEvent) {
+        ms_x!!.text = "X：" + Math.round(event.values[0] * 100).toFloat() / 100
+        ms_y!!.text = "Y：" + Math.round(event.values[1] * 100).toFloat() / 100
+        ms_z!!.text = "Z：" + Math.round(event.values[2] * 100).toFloat() / 100
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
 }
