@@ -54,19 +54,19 @@
 
 3. 点击`手机信息`，会输出系统信息、和部分用户信息。包括设备厂商、安卓版本、SDK版本、安卓ID、品牌名、屏幕分辨率、DPI、内存信息、MAC地址、存储信息、CPU信息等。
 
-   ![3](.\screenshots\3.png )
+   <img src=".\screenshots\3.png" alt="手机信息" style="zoom:50%;" />
 
 4. 点击`应用信息`，会输出各app信息。包括app的总数目，以及每个app的名称、包名称、版本号和版本代码。
 
-   ![4](.\screenshots\4.png)
+   <img src=".\screenshots\4.png" alt="app信息" style="zoom:50%;" />
 
 5. 点击`定位信息`，没有输出。
 
-   ![5](.\screenshots\5.png)
+   <img src=".\screenshots\5.png" alt="定位信息暂未实现" style="zoom:50%;" />
 
 6. 点击`传感器信息`,会输出目前支持的传感器列表，并以其中一个加速度传感器为例，输出其数据。
 
-   ![6](.\screenshots\6.png)
+   <img src=".\screenshots\6.png" alt="传感器信息" style="zoom:50%;" />
 
 
 
