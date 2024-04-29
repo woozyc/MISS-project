@@ -24,7 +24,7 @@ object DeviceInfoCollector {
         return builder.toString()
     }
 
-    // getSystemInfo函数用于获取用户信息
+    // getUserInfo函数用于获取用户信息
     fun getUserInfo(context: Context): String {
         val builder = StringBuilder()
         // 获取SIM卡状态信息
@@ -36,7 +36,7 @@ object DeviceInfoCollector {
         return builder.toString()
     }
 
-    // getSystemInfo函数用于获取app信息
+    // getInstalledApps函数用于获取app信息
     fun getInstalledApps(context: Context): String {
         val builder = StringBuilder()
         val packageManager = context.packageManager
